@@ -1,17 +1,13 @@
 package cz.secda1.spsmb.javaDates;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -91,8 +87,6 @@ public class DateTimeUtils {
      * např. pro start = 31.12.2023  a end = 01.01.2023 vrátí list ve opět s nižším datem na první pozici a s vyšším na pozici druhé, tedy opět 01.01.2023, 31.12.2023.
      */
     public static List<LocalDate> smallerFirst(LocalDate start, LocalDate end) {
-
-
         List<LocalDate> localDateList = new ArrayList<>();
         int helpInt = start.compareTo(end);
         if (helpInt < 0) {

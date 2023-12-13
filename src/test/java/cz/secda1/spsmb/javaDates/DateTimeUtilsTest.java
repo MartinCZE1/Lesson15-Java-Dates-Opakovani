@@ -4,17 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.JavaTimeConversionPattern;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DateTimeUtilsTest {
@@ -36,7 +29,7 @@ class DateTimeUtilsTest {
 
     }
 
-   @ParameterizedTest
+    @ParameterizedTest
     @CsvSource(value = {"23.08.2023;23.08.2023 12:00", "12.11.2023;12.11.2023 12:00"}, delimiter = ';')
     void atMoonTime(@JavaTimeConversionPattern("dd.MM.yyyy") LocalDate someDay, String expected) {
         String todaysMoonTime = DateTimeUtils.atMoonTime(someDay);
@@ -75,12 +68,11 @@ class DateTimeUtilsTest {
     }
 
 
-
     @Test
     void firstMondayAfterChristmas() {
         LocalDate mondayAfterChristmas = DateTimeUtils.firstMondayAfterChristmas();
         assertNotNull(mondayAfterChristmas);
-        assertEquals("2023-12-25",mondayAfterChristmas.toString());
+        assertEquals("2023-12-25", mondayAfterChristmas.toString());
 
 
     }
